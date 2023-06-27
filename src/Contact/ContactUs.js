@@ -1,59 +1,71 @@
-
 import React, { useState, useRef } from 'react';
-import { Form, Button, Alert, Container } from 'react-bootstrap';
 import axios from 'axios';
+import './ContactUs';
+
 const ContactUs = () => {
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    const nameInputRef = useRef();
-    const emailInputRef = useRef();
-    const phoneInputRef = useRef();
-    async function DetailsSubmitHandler(event) {
-        event.preventDefault();
-        const name = nameInputRef.current.value;
-        const email = emailInputRef.current.value;
-        const phone = phoneInputRef.current.value;
-        const userObj = { name: name, email: email, phone: phone }
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const nameInputRef = useRef();
+  const emailInputRef = useRef();
+  const phoneInputRef = useRef();
 
-        try {
-            await axios.post('https://ecommerce-ee608-default-rtdb.firebaseio.com//users.json', userObj)
-            setShowSuccessMessage(true);
-            nameInputRef.current.value = '';
-            emailInputRef.current.value = '';
-            phoneInputRef.current.value = '';
+  async function DetailsSubmitHandler(event) {
+    event.preventDefault();
+    const name = nameInputRef.current.value;
+    const email = emailInputRef.current.value;
+    const phone = phoneInputRef.current.value;
+    const userObj = { name: name, email: email, phone: phone };
 
-        } catch (err) {
-            alert(err.message)
-        }
+    try {
+      await axios.post('https://ecommerce-app-17d67-default-rtdb.firebaseio.com/', userObj);
+      setShowSuccessMessage(true);
+      nameInputRef.current.value = '';
+      emailInputRef.current.value = '';
+      phoneInputRef.current.value = '';
+    } catch (err) {
+      alert(err.message);
     }
+  }
 
-    return (<>
-        <Container className="w-75 mt-5 shadow" fluid >
-            <h1 className='text-center'>Contact Us</h1>
-            
-            <Form className='text-center' onSubmit={DetailsSubmitHandler} >
-                {showSuccessMessage && (
-                    <Alert variant="success">
-                        Your form was submitted successfully!
-                    </Alert>
-                )}
-                <Form.Group >
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="name" ref={nameInputRef} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" ref={emailInputRef} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Phone number</Form.Label>
-                    <Form.Control type="phone" ref={phoneInputRef} />
-                </Form.Group>
-                <Button variant="secondary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-        </Container>
+  return (
+    <>
+      <div className="container mt-5 shadow">
+        <h1 className="text-center">Contact Us</h1>
+
+        <form className="text-center" onSubmit={DetailsSubmitHandler}>
+          {showSuccessMessage && (
+            <div className="alert alert-success" role="alert">
+              Your form was submitted successfully!
+            </div>
+          )}
+
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">
+              Name
+            </label>
+            <input type="text" className="form-control" id="name" ref={nameInputRef} />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
+            <input type="email" className="form-control" id="email" ref={emailInputRef} />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="phone" className="form-label">
+              Phone number
+            </label>
+            <input type="text" className="form-control" id="phone" ref={phoneInputRef} />
+          </div>
+
+          <button className="btn btn-secondary" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </>
-    )
-}
+  );
+};
+
 export default ContactUs;

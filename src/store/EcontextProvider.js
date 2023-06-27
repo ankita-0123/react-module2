@@ -28,7 +28,7 @@ const EcontextProvider = (props) => {
         setCart(updatedCart);
         setTotalAmount(preAmount => preAmount - product.price * product.amount)
         try {
-            const response = await axios.delete(`https://ecommerce-ee608-default-rtdb.firebaseio.com/${email}/${id}.json`)
+            const response = await axios.delete(`https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${email}/${id}.json`)
         } catch (error) {
             alert(error.message)
         }
@@ -57,7 +57,7 @@ const EcontextProvider = (props) => {
 
     const onShowCart = useCallback(async () => {
         try {
-            const response = await axios.get(`https://ecommerce-ee608-default-rtdb.firebaseio.com//${email}.json`)
+            const response = await axios.get(`https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${email}.json`)
             const loadArr = [];
             for (const key in response.data) {
                 loadArr.push({

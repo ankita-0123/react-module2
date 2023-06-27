@@ -5,7 +5,7 @@ const Quantity = props => {
 
     }
     return (
-        <form style={{ width: '50px' }} onSubmit={props.onChnage} >
+        <form style={{ width: '50px' }} onSubmit={props.onChange} >
             <input type='number' />
         </form>
 

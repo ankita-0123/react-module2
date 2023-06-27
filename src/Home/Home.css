@@ -1,0 +1,90 @@
+/* Home.css */
+
+.home-container {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #0f0e0e;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #56CCF2;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-outline {
+    background-color: transparent;
+    color: #56CCF2;
+    border: 2px solid #56CCF2;
+  }
+  
+  .button-icon {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .play-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .container {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .heading {
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .table-container {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 80%;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+  }
+  
+  .table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+  }
+  
+  .button-lg {
+    padding: 12px 24px;
+    font-size: 18px;
+  }
+  
+  .button-active {
+    background-color: #56CCF2;
+    color: #fff;
+  }
+  
+  /* Add any additional styles or modifications as needed */
+  

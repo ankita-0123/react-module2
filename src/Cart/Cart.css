@@ -1,0 +1,71 @@
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  
+  .cart-title {
+    font-family: 'Metal Mania';
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .cart-empty {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .cart-summary {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cart-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-summary-label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .cart-summary-amount {
+    font-size: 1.5rem;
+  }
+  
+  .cart-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cart-items {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-items-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-weight: bold;
+  }
+  
+  .cart-item-header {
+    text-align: center;
+  }
+  
+  .cart-actions {
+    margin-top: 2rem;
+  }
+  

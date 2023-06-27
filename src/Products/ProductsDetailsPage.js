@@ -22,7 +22,7 @@ const ProductDetailsPage = () => {
                 amount: (sameItem.amount + 1)
             }
             try {
-                const response = await axios.put(`https://ecommerce-ee608-default-rtdb.firebaseio.com//${ctx.email}/${sameItem.id}.json`, productObj)
+                const response = await axios.put(`https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${ctx.email}/${sameItem.id}.json`, productObj)
                 ctx.onShowCart()
                 setIsAdded(true)
             } catch (error) {
@@ -37,7 +37,7 @@ const ProductDetailsPage = () => {
                 amount: 1
             }
             try {
-                const response = await axios.post(`https://ecommerce-ee608-default-rtdb.firebaseio.com//${ctx.email}.json`, productObj)
+                const response = await axios.post(`https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${ctx.email}.json`, productObj)
 
                 ctx.onShowCart()
                 setShowSuccessMessage(true);

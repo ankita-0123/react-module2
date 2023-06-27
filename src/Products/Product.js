@@ -1,127 +1,165 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 import { Row, Container, Col, Button } from "react-bootstrap";
-import ProductList from './ProductList';
+import ProductList from "./ProductList";
 import Econtext from "../store/ecom-context";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import "./Product.css";
+
 const Product = (props) => {
-    const ctx = useContext(Econtext)
-    const productsArr = [
+  const ctx = useContext(Econtext);
+  const productsArr = [
 
-        {
-            id: 'e1',
-            title: 'Colors',
+    {
+        id: 'e1',
+        title: 'Colors',
 
-            price: 100,
+        price: 100,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
 
-        },
+    },
 
-        {
-            id: 'e2',
-            title: 'Black and white Colors',
+    {
+        id: 'e2',
+        title: 'Black and white Colors',
 
-            price: 50,
+        price: 50,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
 
-        },
+    },
 
-        {
-            id: 'e3',
-            title: 'Yellow and Black Colors',
+    {
+        id: 'e3',
+        title: 'Yellow and Black Colors',
 
-            price: 70,
+        price: 70,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
 
-        },
+    },
 
-        {
-            id: 'e4',
-            title: 'Blue Color',
+    {
+        id: 'e4',
+        title: 'Blue Color',
 
-            price: 100,
+        price: 100,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
 
-        },
-        {
-            id: 'e5',
-            title: 'Colors',
+    },
+    {
+        id: 'e5',
+        title: 'Colors',
 
-            price: 100,
+        price: 100,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
 
-        },
-        {
-            id: 'e6',
-            title: 'Colors',
+    },
+    {
+        id: 'e6',
+        title: 'Colors',
 
-            price: 100,
+        price: 100,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
 
-        },
-        {
-            id: 'e7',
-            title: 'Yellow and Black Colors',
+    },
+    {
+        id: 'e7',
+        title: 'Yellow and Black Colors',
 
-            price: 70,
+        price: 70,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
 
-        },
-        
-        {
-            id: 'e8',
-            title: 'Black and white Colors',
+    },
+    
+    {
+        id: 'e8',
+        title: 'Black and white Colors',
 
-            price: 50,
+        price: 50,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
 
-        },
-        {
-            id: 'e9',
-            title: 'Colors',
+    },
+    {
+        id: 'e9',
+        title: 'Colors',
 
-            price: 100,
+        price: 100,
 
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
 
-        },
+    },
+    {
+      id: 'e10',
+      title: 'Black and white Colors',
+
+      price: 50,
+
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+
+  },
+  {
+    id: 'e11',
+    title: 'Black and white Colors',
+
+    price: 50,
+
+    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+
+},
+{
+  id: 'e12',
+  title: 'Blue Color',
+
+  price: 100,
+
+  imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+
+},
 
 
-    ]
-    const Navigate = useNavigate();
-    const CartShowHandler = () => {
-        Navigate(`/Login/Cart/${ctx.token}`)
-        ctx.onShowCart()
-    }
+]
+  const navigate = useNavigate();
 
-    return (
-        <>
-            <Container className="p-4 text-center h3">
-                PRODUCTS
-            </Container>
-            <Container>
-                <Row className="d-flex justify-content-center" style={{ gridColumnGap: '50px', gridRowGap: '50px',borderRadious:'50px' }}>
-                    {productsArr.map((item) => (
-                        <Col lg={3} md={12}
-                            key={item.id} >
-                            <ProductList id={item.id} title={item.title} price={item.price} imageUrl={item.imageUrl} />
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
+  const cartShowHandler = () => {
+    navigate(`/Login/Cart/${ctx.token}`);
+    ctx.onShowCart();
+  };
 
-            <Container className="mb-5 p-4 text-center">
-                <Button variant="secondary" style={{ color: '#56CCF2' }} onClick={CartShowHandler} >See the cart</Button>
-            </Container>
+  return (
+    <div className="product-container">
+      <Container className="product-title">PRODUCTS</Container>
+      <Container>
+        <Row className="product-row">
+          {productsArr.map((item) => (
+            <Col lg={3} md={12} key={item.id}>
+              <ProductList
+                id={item.id}
+                title={item.title}
+                price={item.price}
+                imageUrl={item.imageUrl}
+              />
+            </Col>
+          ))}
+        </Row>
+      </Container>
 
-        </>
-    )
-}
+      <Container className="product-button-container">
+        <Button
+          variant="secondary"
+          className="product-button"
+          onClick={cartShowHandler}
+        >
+          See the cart
+        </Button>
+      </Container>
+    </div>
+  );
+};
+
 export default Product;

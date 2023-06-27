@@ -18,7 +18,7 @@ const SignupForm = () => {
         setIsLoading(true)
         if (password === confirmPassword) {
             try {
-                const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAUcMpZhIH9IhfUQu4cL9wR9xexXHEaAKw', {
+                const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDMVMlJGVr5W6vDo4rp8KsbOnJs3V7um7g', {
                     email: email, password: password, returnSecureToken: true
                 })
                 const emailId = response.data.email.split('@')[0];

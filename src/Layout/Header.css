@@ -1,8 +1,20 @@
-.title >h1 {
-    font-size: 60px;
-    background-color: rgb(101, 95, 95);
-    padding-top: 30px;
-    padding-bottom: 20px;
-  
-    color: white;
-  }
+
+.Header {
+  margin-top: 0rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #6c757d;
+  color: #fff;
+  font-size: 3rem;
+  width: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.Container {
+  width: 100%;
+}
+
+.Container-fluid {
+  width: 100%;
+}

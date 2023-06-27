@@ -1,66 +1,95 @@
 import React, { useContext } from 'react';
-import { Navbar, Nav, Badge, Image, NavDropdown, Offcanvas, Container } from 'react-bootstrap';
+import './WelCome.css';
 import Econtext from '../store/ecom-context';
 import user from '../Images/user.png';
 import { NavLink } from 'react-router-dom';
 
 function WelCome() {
-    const ctx = useContext(Econtext);
-    let totalQuantity = ctx.cart.reduce((currentValue, product) => {
-        return currentValue += product.amount;
-    }, 0)
+  const ctx = useContext(Econtext);
+  let totalQuantity = ctx.cart.reduce((currentValue, product) => {
+    return (currentValue += product.amount);
+  }, 0);
 
-    const logoutHandler = () => {
-        ctx.logout();
-    }
-    const ShowCartItemsHandler = () => {
-        ctx.onShowCart()
-    }
+  const logoutHandler = () => {
+    ctx.logout();
+  };
 
-    return (<>
-        <Navbar bg="dark" variant="dark" fixed='top'>
-            <Nav className="ms-auto">
-                <Nav.Item>
-                    <Nav.Link as={NavLink} to="/home">HOME</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link as={NavLink} to='/About' >ABOUT</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link as={NavLink} to='/ContactUs' >CONTACT US</Nav.Link>
-                </Nav.Item>
-                {!ctx.isLogedin && <Nav.Item>
-                    <Nav.Link as={NavLink} to='/Login' >LOGIN</Nav.Link>
-                </Nav.Item>}
-                {!ctx.isLogedin && <Nav.Item>
-                    <Nav.Link as={NavLink} to='/Signup' >SIGNUP</Nav.Link>
-                </Nav.Item>}
-                {ctx.isLogedin && <Nav.Item>
-                    <Nav.Link as={NavLink} to={`/Login/Product/${ctx.token}`} >STORE</Nav.Link>
-                </Nav.Item>}
-               
-            </Nav>
-            <Nav className='me-auto' style={{ gap: '1rem' }}>
-            {ctx.isLogedin && <Nav.Item>
-                    <Nav.Link as={NavLink} to='/' onClick={logoutHandler} >LOGOUT</Nav.Link>
-                </Nav.Item>}
-                {ctx.isLogedin && <Nav.Item>
-                    <Nav.Link as={NavLink} to={`/Login/Cart/${ctx.token}`} onClick={ShowCartItemsHandler}>
-                        Cart
-                        <Badge bg="light" style={{
-                            position: 'absolute', color: '#56CCF2',
-                            fontSize: '8px'
-                            
-                        }}>{totalQuantity}</Badge>
+  const showCartItemsHandler = () => {
+    ctx.onShowCart();
+  };
 
-                    </Nav.Link>
-                </Nav.Item>}
-            </Nav>
-        </Navbar>
-
+  return (
+    <>
+      <nav className="navbar">
+        <ul className="navbar-list navbar-list-left">
+          <li className="navbar-item">
+            <NavLink to="/home" className="navbar-link">
+              HOME
+            </NavLink>
+          </li>
+          <li className="navbar-item">
+            <NavLink to="/About" className="navbar-link">
+              ABOUT
+            </NavLink>
+          </li>
+          <li className="navbar-item">
+            <NavLink to="/ContactUs" className="navbar-link">
+              CONTACT US
+            </NavLink>
+          </li>
+          {!ctx.isLogedin && (
+            <>
+              <li className="navbar-item">
+                <NavLink to="/Login" className="navbar-link">
+                  LOGIN
+                </NavLink>
+              </li>
+              <li className="navbar-item">
+                <NavLink to="/Signup" className="navbar-link">
+                  SIGNUP
+                </NavLink>
+              </li>
+            </>
+          )}
+          {ctx.isLogedin && (
+            <li className="navbar-item">
+              <NavLink
+                to={`/Login/Product/${ctx.token}`}
+                className="navbar-link"
+              >
+                STORE
+              </NavLink>
+            </li>
+          )}
+        </ul>
+        <ul className="navbar-list navbar-list-right">
+          {ctx.isLogedin && (
+            <>
+              <li className="navbar-item">
+                <NavLink
+                  to="/"
+                  onClick={logoutHandler}
+                  className="navbar-link"
+                >
+                  LOGOUT
+                </NavLink>
+              </li>
+              <li className="navbar-item">
+                <NavLink
+                  to={`/Login/Cart/${ctx.token}`}
+                  onClick={showCartItemsHandler}
+                  className="navbar-link"
+                >
+                  <span className="navbar-link-text">Cart</span>
+                  <span className="badge">{totalQuantity}</span>
+                </NavLink>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
     </>
-
-    );
+  );
 }
 
 export default WelCome;
