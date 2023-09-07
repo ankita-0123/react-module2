@@ -7,18 +7,18 @@ const SignupForm = () => {
     const ctx = useContext(Econtext);
     const Navigate = useNavigate();
     const [isLoding, setIsLoading] = useState(false)
-    // Initialize state for form fields
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    // Handle form submission
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true)
         if (password === confirmPassword) {
             try {
-                const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDMVMlJGVr5W6vDo4rp8KsbOnJs3V7um7g', {
+                const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBlaWHlQ3l0Vl9O48MJaBlp7fzXFC_8RFE', {
                     email: email, password: password, returnSecureToken: true
                 })
                 const emailId = response.data.email.split('@')[0];

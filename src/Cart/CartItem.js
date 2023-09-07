@@ -16,7 +16,7 @@ const CartItem = (props) => {
 
     try {
       const response = await axios.put(
-        `https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${ctx.email}/${props.id}.json`,
+        `https://netflix-ddcaf-default-rtdb.firebaseio.com/${ctx.email}/${props.id}.json`,
         productObj
       );
       ctx.onShowCart();
@@ -36,7 +36,7 @@ const CartItem = (props) => {
 
     try {
       const response = await axios.put(
-        `https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${ctx.email}/${props.id}.json`,
+        `https://netflix-ddcaf-default-rtdb.firebaseio.com/${ctx.email}/${props.id}.json`,
         productObj
       );
       ctx.onShowCart();

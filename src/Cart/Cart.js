@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import CartItem from './CartItem';
 import UICard from '../UI/UICard';
 import Econtext from '../store/ecom-context';

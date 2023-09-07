@@ -16,7 +16,7 @@ const ContactUs = () => {
     const userObj = { name: name, email: email, phone: phone };
 
     try {
-      await axios.post('https://ecommerce-app-17d67-default-rtdb.firebaseio.com/', userObj);
+      await axios.post('https://netflix-ddcaf-default-rtdb.firebaseio.com/', userObj);
       setShowSuccessMessage(true);
       nameInputRef.current.value = '';
       emailInputRef.current.value = '';

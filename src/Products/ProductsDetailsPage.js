@@ -4,6 +4,7 @@ import { Button, Table, Container, Image, Dropdown, Alert } from "react-bootstra
 import Econtext from "../store/ecom-context";
 import axios from "axios";
 
+
 const ProductDetailsPage = () => {
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [isAdded, setIsAdded] = useState(false)
@@ -22,7 +23,7 @@ const ProductDetailsPage = () => {
                 amount: (sameItem.amount + 1)
             }
             try {
-                const response = await axios.put(`https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${ctx.email}/${sameItem.id}.json`, productObj)
+                const response = await axios.put(`https://netflix-ddcaf-default-rtdb.firebaseio.com/${ctx.email}/${sameItem.id}.json`, productObj)
                 ctx.onShowCart()
                 setIsAdded(true)
             } catch (error) {
@@ -37,7 +38,7 @@ const ProductDetailsPage = () => {
                 amount: 1
             }
             try {
-                const response = await axios.post(`https://ecommerce-app-17d67-default-rtdb.firebaseio.com/${ctx.email}.json`, productObj)
+                const response = await axios.post(`https://netflix-ddcaf-default-rtdb.firebaseio.com/${ctx.email}.json`, productObj)
 
                 ctx.onShowCart()
                 setShowSuccessMessage(true);

@@ -13,7 +13,7 @@ const Login = () => {
         const enterdEmail = emailInputRef.current.value;
         const enterdPassword = passwordInputRef.current.value;
         try {
-            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDMVMlJGVr5W6vDo4rp8KsbOnJs3V7um7g', {
+            const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBlaWHlQ3l0Vl9O48MJaBlp7fzXFC_8RFE', {
                 email: enterdEmail, password: enterdPassword, returnSecureToken: true
             })
             const nameId = response.data.email.split('@')[0];
